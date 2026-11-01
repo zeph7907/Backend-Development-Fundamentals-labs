@@ -88,6 +88,50 @@ app.get('/', (request, response) => {
   `);
 });
 
+// Browser test helper routes for fast 1-click verification & screenshots
+app.get('/post-book', async (request, response) => {
+  try {
+    const result = await db.run(
+      `INSERT INTO book (title, author, price, pages) VALUES (?, ?, ?, ?);`,
+      'The Power of Habit',
+      'Charles Duhigg',
+      420,
+      371
+    );
+    response.status(201).send({
+      message: 'Book added successfully',
+      bookId: result.lastID,
+    });
+  } catch (error) {
+    response.status(500).send({ error: error.message });
+  }
+});
+
+app.get('/put-book', async (request, response) => {
+  try {
+    await db.run(
+      `UPDATE book SET title = ?, author = ?, price = ?, pages = ? WHERE id = ?;`,
+      'Atomic Habits (Updated Edition)',
+      'James Clear',
+      499,
+      320,
+      1
+    );
+    response.status(200).send({ message: 'Book updated successfully' });
+  } catch (error) {
+    response.status(500).send({ error: error.message });
+  }
+});
+
+app.get('/delete-book', async (request, response) => {
+  try {
+    await db.run(`DELETE FROM book WHERE id = ?;`, 8);
+    response.status(200).send({ message: 'Book deleted successfully' });
+  } catch (error) {
+    response.status(500).send({ error: error.message });
+  }
+});
+
 // 2. GET /books/ - Retrieve all books
 app.get('/books/', async (request, response) => {
   try {
