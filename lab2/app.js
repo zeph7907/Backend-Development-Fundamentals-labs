@@ -89,7 +89,7 @@ app.get('/', (request, response) => {
 });
 
 // Browser test helper routes for fast 1-click verification & screenshots
-app.get('/post-book', async (request, response) => {
+const handlePostBook = async (request, response) => {
   try {
     const result = await db.run(
       `INSERT INTO book (title, author, price, pages) VALUES (?, ?, ?, ?);`,
@@ -98,16 +98,16 @@ app.get('/post-book', async (request, response) => {
       420,
       371
     );
-    response.status(201).send({
+    response.status(200).send({
       message: 'Book added successfully',
       bookId: result.lastID,
     });
   } catch (error) {
     response.status(500).send({ error: error.message });
   }
-});
+};
 
-app.get('/put-book', async (request, response) => {
+const handlePutBook = async (request, response) => {
   try {
     await db.run(
       `UPDATE book SET title = ?, author = ?, price = ?, pages = ? WHERE id = ?;`,
@@ -121,16 +121,23 @@ app.get('/put-book', async (request, response) => {
   } catch (error) {
     response.status(500).send({ error: error.message });
   }
-});
+};
 
-app.get('/delete-book', async (request, response) => {
+const handleDeleteBook = async (request, response) => {
   try {
     await db.run(`DELETE FROM book WHERE id = ?;`, 8);
     response.status(200).send({ message: 'Book deleted successfully' });
   } catch (error) {
     response.status(500).send({ error: error.message });
   }
-});
+};
+
+app.get('/post-book', handlePostBook);
+app.get('/books/post', handlePostBook);
+app.get('/put-book', handlePutBook);
+app.get('/books/put', handlePutBook);
+app.get('/delete-book', handleDeleteBook);
+app.get('/books/delete', handleDeleteBook);
 
 // 2. GET /books/ - Retrieve all books
 app.get('/books/', async (request, response) => {
