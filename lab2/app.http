@@ -1,0 +1,48 @@
+### 1. Home / Documentation Route
+GET http://localhost:3000/
+
+###
+
+### 2. Retrieve All Books (GET /books/)
+GET http://localhost:3000/books/
+
+###
+
+### 3. Retrieve a Single Book by ID (GET /books/:bookId/)
+GET http://localhost:3000/books/1/
+
+###
+
+### 4. Add a New Book (POST /books/)
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+  "title": "The Power of Habit",
+  "author": "Charles Duhigg",
+  "price": 420,
+  "pages": 371
+}
+
+###
+
+### 5. Update an Existing Book by ID (PUT /books/:bookId/)
+PUT http://localhost:3000/books/1/
+Content-Type: application/json
+
+{
+  "title": "Atomic Habits (Updated Edition)",
+  "author": "James Clear",
+  "price": 499,
+  "pages": 320
+}
+
+###
+
+### 6. Delete a Book by ID (DELETE /books/:bookId/)
+DELETE http://localhost:3000/books/8/
+
+###
+
+### 7. Test Non-Existent Book (404 Handler)
+GET http://localhost:3000/books/999/

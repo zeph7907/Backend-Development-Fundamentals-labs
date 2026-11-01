@@ -1,0 +1,32 @@
+### ==========================================
+### LOCAL SERVER TESTS (http://localhost:3000)
+### ==========================================
+
+### 1. Home Route
+GET http://localhost:3000/
+
+### 2. About Route
+GET http://localhost:3000/about
+
+### 3. Time Route
+GET http://localhost:3000/time
+
+### 4. 404 Not Found (Testing Unknown Route)
+GET http://localhost:3000/unknown
+
+
+### ==========================================
+### LIVE RENDER DEPLOYMENT TESTS
+### ==========================================
+
+### 1. Live Home Route
+GET https://backend-development-fundamentals-lab-1-nk19.onrender.com/
+
+### 2. Live About Route
+GET https://backend-development-fundamentals-lab-1-nk19.onrender.com/about
+
+### 3. Live Time Route
+GET https://backend-development-fundamentals-lab-1-nk19.onrender.com/time
+
+### 4. Live 404 Route
+GET https://backend-development-fundamentals-lab-1-nk19.onrender.com/unknown
