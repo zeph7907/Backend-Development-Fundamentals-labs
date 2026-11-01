@@ -59,84 +59,32 @@ const initializeDBAndServer = async () => {
 // 1. Home / Documentation Route
 app.get('/', (request, response) => {
   response.send(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <title>Backend Development Fundamentals - Lab 2</title>
-      <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 40px; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 0 auto; }
-        h1 { color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; margin-top: 0; }
-        h2 { color: #2563eb; margin-top: 24px; }
-        .student-info { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
-        th { background-color: #f1f5f9; color: #475569; font-weight: 600; }
-        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-        .get { background-color: #dbeafe; color: #1d4ed8; }
-        .post { background-color: #dcfce7; color: #15803d; }
-        .put { background-color: #fef3c7; color: #b45309; }
-        .delete { background-color: #fee2e2; color: #b91c1c; }
-        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
-        .status { margin-top: 25px; padding: 10px 15px; background: #ecfdf5; border-left: 4px solid #10b981; border-radius: 0 6px 6px 0; color: #065f46; font-weight: 500; }
-      </style>
-    </head>
-    <body>
-      <div class="card">
-        <h1>Backend Development Fundamentals – Lab 2</h1>
-        <div class="student-info">
-          <p><strong>Student Name:</strong> Ayush Aditya</p>
-          <p><strong>Registration Number:</strong> 252U1R3013</p>
-          <p><strong>Class & Section:</strong> CSE-DS 1A / 205</p>
-          <p><strong>University:</strong> Aurora Deemed to be University</p>
-        </div>
-        <p>This Express.js application connects to an <strong>SQLite</strong> database (<code>books.db</code>) and implements full CRUD operations with parameterized SQL queries.</p>
-        
-        <h2>Available API Endpoints</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>Endpoint</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge get">GET</span></td>
-              <td><code>/books/</code></td>
-              <td>Retrieve all books from the database</td>
-            </tr>
-            <tr>
-              <td><span class="badge get">GET</span></td>
-              <td><code>/books/:bookId/</code></td>
-              <td>Retrieve a specific book by ID</td>
-            </tr>
-            <tr>
-              <td><span class="badge post">POST</span></td>
-              <td><code>/books/</code></td>
-              <td>Add a new book record</td>
-            </tr>
-            <tr>
-              <td><span class="badge put">PUT</span></td>
-              <td><code>/books/:bookId/</code></td>
-              <td>Update an existing book by ID</td>
-            </tr>
-            <tr>
-              <td><span class="badge delete">DELETE</span></td>
-              <td><code>/books/:bookId/</code></td>
-              <td>Delete a book record by ID</td>
-            </tr>
-          </tbody>
-        </table>
+    <h1>Welcome to Backend Fundamentals - Lab 2</h1>
 
-        <div class="status">
-          Server Status: Running & Connected to SQLite Database
-        </div>
-      </div>
-    </body>
-    </html>
+    <p>
+      This project demonstrates connecting an Express.js
+      application with an SQLite database and performing
+      CRUD operations on book records.
+    </p>
+
+    <h2>Available API Endpoints</h2>
+
+    <h3>GET /books/</h3>
+    <p>Retrieve all books from the database.</p>
+
+    <h3>GET /books/:bookId/</h3>
+    <p>Retrieve a specific book using its ID.</p>
+
+    <h3>POST /books/</h3>
+    <p>Add a new book to the database.</p>
+
+    <h3>PUT /books/:bookId/</h3>
+    <p>Update an existing book using its ID.</p>
+
+    <h3>DELETE /books/:bookId/</h3>
+    <p>Delete a book using its ID.</p>
+
+    <p>Server Status: Running</p>
   `);
 });
 
