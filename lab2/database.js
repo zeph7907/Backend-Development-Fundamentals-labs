@@ -10,6 +10,7 @@ const openDatabase = async () => {
     driver: sqlite3.Database,
   });
 
+  await database.run('PRAGMA busy_timeout = 3000;');
   console.log('Database connected successfully');
   return database;
 };

@@ -365,6 +365,13 @@ URL: `http://localhost:3000/books/8/`
 
 ---
 
+### 7. Resource Not Found / 404 Error Handling (`GET /books/999/`)
+URL: `http://localhost:3000/books/999/`
+
+![Not Found](Screenshots/not-found.png)
+
+---
+
 ## 9. Cloud Deployment (Render)
 
 - **Platform:** Render (Web Service)
