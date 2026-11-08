@@ -63,7 +63,6 @@ Backend-Development-Fundamentals-labs/
 │   ├── insertBooks.js
 │   ├── package.json
 │   ├── package-lock.json
-│   ├── test_api.js
 │   └── README.md
 ├── .gitignore
 └── README.md
