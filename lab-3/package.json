@@ -1,0 +1,27 @@
+{
+  "name": "backend-development-fundamentals-lab-3",
+  "version": "1.0.0",
+  "description": "Backend Development Fundamentals Lab 3 - RESTful API Development and Validation using Express.js and SQLite",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "seed": "node insertBooks.js",
+    "test": "node app.js"
+  },
+  "keywords": [
+    "express",
+    "sqlite",
+    "rest-api",
+    "validation",
+    "query-parameters",
+    "backend"
+  ],
+  "author": "Ayush Aditya (252U1R3013)",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}

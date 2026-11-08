@@ -1,0 +1,130 @@
+### 1. Root Route
+GET http://localhost:3000/
+
+###
+
+### 2. About Route
+GET http://localhost:3000/about/
+
+###
+
+### 3. Retrieve All Books (Default 10, Sorted by title ASC)
+GET http://localhost:3000/books/
+
+###
+
+### 4. Search Books by Title Substring (?search_q=harry)
+GET http://localhost:3000/books/?search_q=harry
+
+###
+
+### 5. Search Books by Title Substring (?search_q=the)
+GET http://localhost:3000/books/?search_q=the
+
+###
+
+### 6. Sort Books by Price Descending (?order_by=price&order=DESC)
+GET http://localhost:3000/books/?order_by=price&order=DESC
+
+###
+
+### 7. Filter Books by Price Range (?min_price=400&max_price=600)
+GET http://localhost:3000/books/?min_price=400&max_price=600
+
+###
+
+### 8. Pagination (?limit=5&offset=0 - First 5 books)
+GET http://localhost:3000/books/?limit=5&offset=0
+
+###
+
+### 9. Retrieve a Single Book by ID (GET /books/1/)
+GET http://localhost:3000/books/1/
+
+###
+
+### 10. Add a New Book (POST /books/)
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+  "title": "The Power of Habit",
+  "author": "Charles Duhigg",
+  "price": 420,
+  "pages": 371
+}
+
+###
+
+### 11. Update an Existing Book (PUT /books/:bookId/)
+PUT http://localhost:3000/books/2/
+Content-Type: application/json
+
+{
+  "title": "Atomic Habits (Updated Edition)",
+  "author": "James Clear",
+  "price": 500,
+  "pages": 350
+}
+
+###
+
+### 12. Delete a Book by ID (DELETE /books/:bookId/)
+DELETE http://localhost:3000/books/1/
+
+###
+
+### 13. Verify Deletion (GET /books/1/ -> Expected 404)
+GET http://localhost:3000/books/1/
+
+###
+
+### 14. Validation Test: Invalid order_by value (?order_by=rating -> Expected 400)
+GET http://localhost:3000/books/?order_by=rating
+
+###
+
+### 15. Validation Test: Invalid sorting order (?order=RANDOM -> Expected 400)
+GET http://localhost:3000/books/?order=RANDOM
+
+###
+
+### 16. Validation Test: Invalid POST data (missing author -> Expected 400)
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+  "title": "Incomplete Book",
+  "price": 350
+}
+
+###
+
+### 17. Validation Test: Invalid price in POST (string instead of number -> Expected 400)
+POST http://localhost:3000/books/
+Content-Type: application/json
+
+{
+  "title": "Test Book",
+  "author": "Test Author",
+  "price": "not_a_number",
+  "pages": 200
+}
+
+###
+
+### 18. Validation Test: PUT non-existent book ID (PUT /books/999/ -> Expected 404)
+PUT http://localhost:3000/books/999/
+Content-Type: application/json
+
+{
+  "title": "Ghost Book",
+  "author": "Unknown",
+  "price": 500,
+  "pages": 150
+}
+
+###
+
+### 19. Validation Test: DELETE non-existent book ID (DELETE /books/999/ -> Expected 404)
+DELETE http://localhost:3000/books/999/
